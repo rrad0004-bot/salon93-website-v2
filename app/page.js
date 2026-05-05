@@ -168,6 +168,70 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* FINAL CTA SECTION */}
+      <section
+        style={{
+          padding: "5rem 2rem",
+          background: "#000",
+          color: "#fff",
+          textAlign: "center",
+        }}
+      >
+        <h2 style={{ fontSize: "2.5rem", fontWeight: "700" }}>
+          Ready for a fresh new look?
+        </h2>
+
+        <p
+          style={{
+            marginTop: "1rem",
+            color: "rgba(255,255,255,0.7)",
+            maxWidth: "600px",
+            marginLeft: "auto",
+            marginRight: "auto",
+          }}
+        >
+          Book your appointment at Salon 93 today and experience professional
+          women’s hair care in Taylors Hill.
+        </p>
+
+        <div
+          style={{
+            marginTop: "2.5rem",
+            display: "flex",
+            gap: "1rem",
+            justifyContent: "center",
+            flexWrap: "wrap",
+          }}
+        >
+          <Link
+            href="/contact"
+            style={{
+              padding: "0.9rem 1.5rem",
+              background: "#fff",
+              color: "#000",
+              borderRadius: "8px",
+              textDecoration: "none",
+              fontWeight: "600",
+            }}
+          >
+            Book Appointment
+          </Link>
+
+          <a
+            href="tel:+61383582538"
+            style={{
+              padding: "0.9rem 1.5rem",
+              border: "1px solid #fff",
+              color: "#fff",
+              borderRadius: "8px",
+              textDecoration: "none",
+            }}
+          >
+            Call Now
+          </a>
+        </div>
+      </section>
     </>
   );
 }
