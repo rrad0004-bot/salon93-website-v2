@@ -124,6 +124,50 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* WHY CHOOSE SECTION */}
+      <section
+        style={{
+          padding: "5rem 2rem",
+          background: "#f9f9f9",
+          textAlign: "center",
+        }}
+      >
+        <h2 style={{ fontSize: "2.5rem", fontWeight: "700" }}>
+          Why Choose Salon 93
+        </h2>
+
+        <p style={{ color: "#666", marginTop: "1rem", maxWidth: "700px", marginLeft: "auto", marginRight: "auto" }}>
+          We focus on precision, care, and personalised styling so every client leaves feeling confident and refreshed.
+        </p>
+
+        <div
+          style={{
+            marginTop: "3rem",
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+            gap: "2rem",
+            maxWidth: "1000px",
+            marginLeft: "auto",
+            marginRight: "auto",
+          }}
+        >
+          <div style={cardStyle}>
+            <h3>💇‍♀️ Expert Stylists</h3>
+            <p>Professional experience in women’s cuts, colour & styling.</p>
+          </div>
+
+          <div style={cardStyle}>
+            <h3>🎨 Personalised Service</h3>
+            <p>Every look is tailored to your face shape, hair type, and lifestyle.</p>
+          </div>
+
+          <div style={cardStyle}>
+            <h3>✨ Premium Products</h3>
+            <p>We use high-quality products that protect and nourish your hair.</p>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
