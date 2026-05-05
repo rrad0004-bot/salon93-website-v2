@@ -65,7 +65,7 @@ const box = {
 /* IMAGE STYLE */
 const imgStyle = {
     width: "100%",
-    height: "100px",
+    height: "250px",
     objectFit: "cover",
     objectPosition: "center",
     borderRadius: "10px",
