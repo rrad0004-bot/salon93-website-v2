@@ -8,6 +8,26 @@ const cardStyle = {
   background: "#fafafa",
 };
 
+const serviceCard = {
+  padding: "2.2rem",
+  borderRadius: "14px",
+  background: "#fafafa",
+  border: "1px solid #eee",
+  textAlign: "left",
+  transition: "all 0.2s ease",
+};
+
+const cardTitle = {
+  fontSize: "1.3rem",
+  fontWeight: "600",
+  marginBottom: "0.8rem",
+};
+
+const cardText = {
+  color: "#666",
+  lineHeight: "1.6",
+};
+
 export default function Home() {
   return (
     <>
@@ -97,51 +117,67 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SERVICES SECTION (NOW CORRECTLY SEPARATE) */}
+      {/* SERVICES SECTION */}
       <section
         style={{
-          padding: "5rem 2rem",
+          padding: "6rem 2rem",
           background: "#fff",
           textAlign: "center",
         }}
       >
-        <h2 style={{ fontSize: "2.5rem", fontWeight: "700" }}>
+        <h2 style={{ fontSize: "2.6rem", fontWeight: "700" }}>
           Our Services
         </h2>
 
-        <p style={{ color: "#666", marginTop: "1rem" }}>
-          Premium hair care tailored for women
+        <p
+          style={{
+            color: "#666",
+            marginTop: "1rem",
+            fontSize: "1.1rem",
+          }}
+        >
+          Tailored hair care designed for confidence, beauty, and precision
         </p>
 
+        {/* GRID */}
         <div
           style={{
-            marginTop: "3rem",
+            marginTop: "3.5rem",
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
             gap: "2rem",
-            maxWidth: "1000px",
+            maxWidth: "1100px",
             marginLeft: "auto",
             marginRight: "auto",
           }}
         >
-          <div style={cardStyle}>
-            <h3>✂️ Haircuts</h3>
-            <p>Precision cuts tailored to your face shape and style.</p>
+          {/* CARD */}
+          <div style={serviceCard}>
+            <h3 style={cardTitle}>✂️ Haircuts</h3>
+            <p style={cardText}>
+              Precision cuts tailored to your face shape and personal style.
+            </p>
           </div>
 
-          <div style={cardStyle}>
-            <h3>🎨 Colour</h3>
-            <p>From subtle tones to full transformations and balayage.</p>
+          <div style={serviceCard}>
+            <h3 style={cardTitle}>🎨 Colour</h3>
+            <p style={cardText}>
+              From natural tones to full transformations and balayage artistry.
+            </p>
           </div>
 
-          <div style={cardStyle}>
-            <h3>✨ Styling</h3>
-            <p>Blow waves, event styling, and everyday glam looks.</p>
+          <div style={serviceCard}>
+            <h3 style={cardTitle}>✨ Styling</h3>
+            <p style={cardText}>
+              Blow waves, event styling, and everyday polished looks.
+            </p>
           </div>
 
-          <div style={cardStyle}>
-            <h3>💆‍♀️ Treatments</h3>
-            <p>Restore shine, health, and strength to your hair.</p>
+          <div style={serviceCard}>
+            <h3 style={cardTitle}>💆‍♀️ Treatments</h3>
+            <p style={cardText}>
+              Restore shine, strength, and health with premium care treatments.
+            </p>
           </div>
         </div>
       </section>
