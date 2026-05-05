@@ -18,23 +18,38 @@ export default function Home() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          padding: "4rem 2rem",
+          padding: "5rem 2rem",
           textAlign: "center",
-          background: "linear-gradient(to bottom, #ffffff, #f6f6f6)",
+          background: "linear-gradient(135deg, #ffffff 0%, #f7f7f7 100%)",
         }}
       >
-        <div style={{ maxWidth: "800px" }}>
-          <h1 style={{ fontSize: "3.5rem", fontWeight: "700" }}>
+        <div style={{ maxWidth: "850px" }}>
+
+          <p style={{ letterSpacing: "2px", color: "#999", fontSize: "0.85rem" }}>
+            LUXURY HAIR SALON • TAYLORS HILL
+          </p>
+
+          <h1
+            style={{
+              fontSize: "4rem",
+              fontWeight: "700",
+              marginTop: "1rem",
+              letterSpacing: "-1px",
+            }}
+          >
             Salon 93
           </h1>
 
-          <p style={{ marginTop: "1rem", fontSize: "1.3rem", color: "#666" }}>
-            Luxury hair care, colour & styling in Taylors Hill
-          </p>
-
-          <p style={{ marginTop: "1.5rem", color: "#888", fontSize: "1rem" }}>
-            Specialising in women’s cuts, colour transformations, treatments,
-            and professional styling designed to elevate your look.
+          <p
+            style={{
+              marginTop: "1.2rem",
+              fontSize: "1.25rem",
+              color: "#555",
+              lineHeight: "1.6",
+            }}
+          >
+            Premium women’s hair care specialising in colour, styling,
+            extensions and treatments designed to enhance your natural beauty.
           </p>
 
           {/* CTA BUTTONS */}
@@ -50,11 +65,12 @@ export default function Home() {
             <Link
               href="/contact"
               style={{
-                padding: "0.9rem 1.5rem",
+                padding: "1rem 1.6rem",
                 background: "#000",
                 color: "#fff",
                 borderRadius: "8px",
                 textDecoration: "none",
+                fontWeight: "500",
               }}
             >
               Book Appointment
@@ -63,7 +79,7 @@ export default function Home() {
             <a
               href="tel:+61383582538"
               style={{
-                padding: "0.9rem 1.5rem",
+                padding: "1rem 1.6rem",
                 border: "1px solid #000",
                 color: "#000",
                 borderRadius: "8px",
@@ -73,6 +89,11 @@ export default function Home() {
               Call Now
             </a>
           </div>
+
+          <p style={{ marginTop: "2rem", color: "#888", fontSize: "0.9rem" }}>
+            📍 7/127 Gourlay Rd, Taylors Hill VIC 3037
+          </p>
+
         </div>
       </section>
 
