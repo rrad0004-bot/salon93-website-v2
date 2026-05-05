@@ -1,5 +1,13 @@
 import Link from "next/link";
 
+const cardStyle = {
+  padding: "2rem",
+  border: "1px solid #eee",
+  borderRadius: "12px",
+  textAlign: "left",
+  background: "#fafafa",
+};
+
 export default function Home() {
   return (
     <>
@@ -16,34 +24,15 @@ export default function Home() {
         }}
       >
         <div style={{ maxWidth: "800px" }}>
-          <h1
-            style={{
-              fontSize: "3.5rem",
-              fontWeight: "700",
-              letterSpacing: "-1px",
-            }}
-          >
+          <h1 style={{ fontSize: "3.5rem", fontWeight: "700" }}>
             Salon 93
           </h1>
 
-          <p
-            style={{
-              marginTop: "1rem",
-              fontSize: "1.3rem",
-              color: "#666",
-            }}
-          >
+          <p style={{ marginTop: "1rem", fontSize: "1.3rem", color: "#666" }}>
             Luxury hair care, colour & styling in Taylors Hill
           </p>
 
-          <p
-            style={{
-              marginTop: "1.5rem",
-              color: "#888",
-              fontSize: "1rem",
-              lineHeight: "1.6",
-            }}
-          >
+          <p style={{ marginTop: "1.5rem", color: "#888", fontSize: "1rem" }}>
             Specialising in women’s cuts, colour transformations, treatments,
             and professional styling designed to elevate your look.
           </p>
@@ -83,6 +72,55 @@ export default function Home() {
             >
               Call Now
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* SERVICES SECTION (NOW CORRECTLY SEPARATE) */}
+      <section
+        style={{
+          padding: "5rem 2rem",
+          background: "#fff",
+          textAlign: "center",
+        }}
+      >
+        <h2 style={{ fontSize: "2.5rem", fontWeight: "700" }}>
+          Our Services
+        </h2>
+
+        <p style={{ color: "#666", marginTop: "1rem" }}>
+          Premium hair care tailored for women
+        </p>
+
+        <div
+          style={{
+            marginTop: "3rem",
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+            gap: "2rem",
+            maxWidth: "1000px",
+            marginLeft: "auto",
+            marginRight: "auto",
+          }}
+        >
+          <div style={cardStyle}>
+            <h3>✂️ Haircuts</h3>
+            <p>Precision cuts tailored to your face shape and style.</p>
+          </div>
+
+          <div style={cardStyle}>
+            <h3>🎨 Colour</h3>
+            <p>From subtle tones to full transformations and balayage.</p>
+          </div>
+
+          <div style={cardStyle}>
+            <h3>✨ Styling</h3>
+            <p>Blow waves, event styling, and everyday glam looks.</p>
+          </div>
+
+          <div style={cardStyle}>
+            <h3>💆‍♀️ Treatments</h3>
+            <p>Restore shine, health, and strength to your hair.</p>
           </div>
         </div>
       </section>
