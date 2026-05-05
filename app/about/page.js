@@ -1,39 +1,32 @@
-export default function AboutPage() {
+export default function About() {
     return (
-        <main style={{ padding: "4rem 2rem" }}>
-            <h1>About Salon 93</h1>
+        <main style={{ padding: "5rem 2rem" }}>
+            <div style={{ maxWidth: "900px", margin: "0 auto" }}>
 
-            <p>
-                Salon 93 is a women-focused hair salon located in Taylors Hill, VIC.
-                We specialise in professional hair care including cutting, colouring,
-                styling, and treatments.
-            </p>
+                <h1 style={{ fontSize: "3rem", fontWeight: "700" }}>
+                    About Salon 93
+                </h1>
 
-            <p>
-                Our goal is to provide high-quality, personalised hair services in a
-                comfortable and welcoming environment.
-            </p>
+                <p style={{ marginTop: "1.5rem", fontSize: "1.2rem", color: "#555", lineHeight: "1.7" }}>
+                    Salon 93 is a premium women’s hair salon located in Taylors Hill,
+                    dedicated to delivering high-quality, personalised hair services.
+                </p>
 
-            <h2>Our Focus</h2>
+                <p style={{ marginTop: "1rem", color: "#666", lineHeight: "1.7" }}>
+                    We specialise in colour transformations, precision cutting, styling,
+                    extensions, and restorative treatments. Every client experience is
+                    tailored to enhance natural beauty while maintaining hair health.
+                </p>
 
-            <ul>
-                <li>Personalised consultations for every client</li>
-                <li>High-quality hair care products</li>
-                <li>Modern styling techniques</li>
-                <li>Friendly and professional service</li>
-            </ul>
+                <div style={{ marginTop: "3rem", padding: "2rem", background: "#fafafa", borderRadius: "12px" }}>
+                    <h3 style={{ marginBottom: "1rem" }}>Our Philosophy</h3>
+                    <p style={{ color: "#666", lineHeight: "1.7" }}>
+                        We believe great hair is not just about style — it's about confidence.
+                        Our approach is personal, detailed, and focused on long-term hair health.
+                    </p>
+                </div>
 
-            <h2>Location</h2>
-
-            <p>
-                7/127 Gourlay Rd, Taylors Hill VIC 3037
-            </p>
-
-            <h2>Contact</h2>
-
-            <p>
-                Phone: (03) 8358 2538
-            </p>
+            </div>
         </main>
     );
 }
