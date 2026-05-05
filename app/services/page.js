@@ -18,22 +18,30 @@ export default function Services() {
                     gap: "2rem"
                 }}>
 
+                    {/* HAIRCUTS */}
                     <div style={box}>
+                        <img src="/images/haircut.jpg" style={imgStyle} />
                         <h3>Haircuts</h3>
                         <p>Precision cuts tailored to your style and face shape.</p>
                     </div>
 
+                    {/* COLOUR */}
                     <div style={box}>
+                        <img src="/images/colour.jpg" style={imgStyle} />
                         <h3>Colour</h3>
                         <p>From natural tones to full transformations and balayage.</p>
                     </div>
 
+                    {/* STYLING */}
                     <div style={box}>
+                        <img src="/images/styling.jpg" style={imgStyle} />
                         <h3>Styling</h3>
                         <p>Blow waves, events, and everyday styling.</p>
                     </div>
 
+                    {/* TREATMENTS */}
                     <div style={box}>
+                        <img src="/images/treatment.jpg" style={imgStyle} />
                         <h3>Treatments</h3>
                         <p>Restore strength, shine, and hair health.</p>
                     </div>
@@ -45,9 +53,20 @@ export default function Services() {
     );
 }
 
+/* CARD STYLE */
 const box = {
-    padding: "2rem",
+    padding: "1.5rem",
     border: "1px solid #eee",
     borderRadius: "12px",
-    background: "#fafafa"
+    background: "#fafafa",
+    transition: "0.2s ease",
+};
+
+/* IMAGE STYLE */
+const imgStyle = {
+    width: "100%",
+    height: "180px",
+    objectFit: "cover",
+    borderRadius: "10px",
+    marginBottom: "1rem"
 };
