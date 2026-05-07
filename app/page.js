@@ -40,12 +40,30 @@ export default function Home() {
           justifyContent: "center",
           padding: "5rem 2rem",
           textAlign: "center",
-          background: "linear-gradient(135deg, #ffffff 0%, #f7f7f7 100%)",
+          backgroundImage: "url('/images/hero.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          position: "relative",
+          color: "#fff"
         }}
       >
-        <div style={{ maxWidth: "850px" }}>
 
-          <p style={{ letterSpacing: "2px", color: "#999", fontSize: "0.85rem" }}>
+        {/* ✅ DARK OVERLAY (VERY IMPORTANT) */}
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            background: "rgba(0,0,0,0.55)"
+          }}
+        />
+
+        {/* ✅ CONTENT (must be relative) */}
+        <div style={{ position: "relative", maxWidth: "850px" }}>
+
+          <p style={{ letterSpacing: "2px", color: "rgba(255,255,255,0.7)", fontSize: "0.85rem" }}>
             LUXURY HAIR SALON • TAYLORS HILL
           </p>
 
@@ -64,7 +82,7 @@ export default function Home() {
             style={{
               marginTop: "1.2rem",
               fontSize: "1.25rem",
-              color: "#555",
+              color: "rgba(255,255,255,0.85)",
               lineHeight: "1.6",
             }}
           >
@@ -86,11 +104,11 @@ export default function Home() {
               href="/contact"
               style={{
                 padding: "1rem 1.6rem",
-                background: "#000",
-                color: "#fff",
+                background: "#fff",
+                color: "#000",
                 borderRadius: "8px",
                 textDecoration: "none",
-                fontWeight: "500",
+                fontWeight: "600",
               }}
             >
               Book Appointment
@@ -100,8 +118,8 @@ export default function Home() {
               href="tel:+61383582538"
               style={{
                 padding: "1rem 1.6rem",
-                border: "1px solid #000",
-                color: "#000",
+                border: "1px solid #fff",
+                color: "#fff",
                 borderRadius: "8px",
                 textDecoration: "none",
               }}
@@ -110,7 +128,7 @@ export default function Home() {
             </a>
           </div>
 
-          <p style={{ marginTop: "2rem", color: "#888", fontSize: "0.9rem" }}>
+          <p style={{ marginTop: "2rem", color: "rgba(255,255,255,0.7)", fontSize: "0.9rem" }}>
             📍 7/127 Gourlay Rd, Taylors Hill VIC 3037
           </p>
 
