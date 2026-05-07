@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function Navbar() {
     const [open, setOpen] = useState(false);
@@ -16,7 +16,7 @@ export default function Navbar() {
 
     return (
         <>
-            {/* TOP NAVBAR */}
+            {/* NAVBAR */}
             <header
                 style={{
                     position: "fixed",
@@ -24,7 +24,7 @@ export default function Navbar() {
                     left: 0,
                     width: "100%",
                     zIndex: 1000,
-                    background: "rgba(255,255,255,0.9)",
+                    background: "rgba(255,255,255,0.92)",
                     backdropFilter: "blur(10px)",
                     borderBottom: "1px solid #eee",
                 }}
@@ -52,7 +52,7 @@ export default function Navbar() {
                         Salon 93
                     </Link>
 
-                    {/* DESKTOP MENU */}
+                    {/* DESKTOP NAV */}
                     <nav className="desktop-nav">
                         {navLinks.map((link) => (
                             <Link
@@ -69,23 +69,14 @@ export default function Navbar() {
                         ))}
                     </nav>
 
-                    {/* HAMBURGER (MOBILE) */}
-                    <motion.button
-                        onClick={() => setOpen((prev) => !prev)}
+                    {/* HAMBURGER (MOBILE ONLY) */}
+                    <button
+                        onClick={() => setOpen(true)}
                         className="hamburger"
-                        animate={{ rotate: open ? 90 : 0 }}
-                        transition={{ duration: 0.2 }}
-                        style={{
-                            fontSize: "1.8rem",
-                            background: "none",
-                            border: "none",
-                            cursor: "pointer",
-                            color: "#000",
-                            zIndex: 1100,
-                        }}
+                        aria-label="Menu"
                     >
-                        {open ? "✕" : "☰"}
-                    </motion.button>
+                        ☰
+                    </button>
                 </div>
             </header>
 
@@ -98,17 +89,16 @@ export default function Navbar() {
                             onClick={() => setOpen(false)}
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
-
                             exit={{ opacity: 0 }}
                             style={{
                                 position: "fixed",
                                 inset: 0,
-                                background: "rgba(0,0,0,0.5)",
+                                background: "rgba(0,0,0,0.45)",
                                 zIndex: 999,
                             }}
                         />
 
-                        {/* SLIDE MENU */}
+                        {/* SIDE DRAWER */}
                         <motion.div
                             initial={{ x: "100%" }}
                             animate={{ x: 0 }}
@@ -118,7 +108,7 @@ export default function Navbar() {
                                 position: "fixed",
                                 top: 0,
                                 right: 0,
-                                width: "280px",
+                                width: "300px",
                                 height: "100vh",
                                 background: "#fff",
                                 zIndex: 1000,
@@ -128,15 +118,16 @@ export default function Navbar() {
                                 gap: "1.5rem",
                             }}
                         >
-                            {/* CLOSE */}
+                            {/* CLOSE BUTTON (ONLY ONE CONTROL NOW) */}
                             <button
                                 onClick={() => setOpen(false)}
                                 style={{
                                     alignSelf: "flex-end",
-                                    fontSize: "1.5rem",
+                                    fontSize: "1.8rem",
                                     background: "none",
                                     border: "none",
                                     cursor: "pointer",
+                                    color: "#111",
                                 }}
                             >
                                 ✕
