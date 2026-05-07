@@ -1,45 +1,132 @@
+"use client";
+
+import { motion } from "framer-motion";
+
+const fadeUp = {
+    hidden: { opacity: 0, y: 40 },
+    show: { opacity: 1, y: 0 }
+};
+
 export default function Contact() {
     return (
-        <main style={{ padding: "5rem 2rem" }}>
-            <div style={{ maxWidth: "800px", margin: "0 auto" }}>
+        <main style={{ padding: "6rem 2rem", background: "#fff" }}>
 
+            {/* HEADER */}
+            <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                style={{ textAlign: "center", maxWidth: "700px", margin: "0 auto" }}
+            >
                 <h1 style={{ fontSize: "3rem", fontWeight: "700" }}>
-                    Contact Us
+                    Book an Appointment
                 </h1>
 
                 <p style={{ marginTop: "1rem", color: "#666" }}>
-                    Book an appointment or get in touch with Salon 93.
+                    Fill out the form below or call us directly.
                 </p>
+            </motion.div>
 
-                <div style={card}>
-                    <p><strong>Phone:</strong> (03) 8358 2538</p>
-                    <p><strong>Address:</strong> 7/127 Gourlay Rd, Taylors Hill VIC</p>
-                </div>
+            {/* LAYOUT */}
+            <div
+                style={{
+                    marginTop: "4rem",
+                    display: "grid",
+                    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+                    gap: "3rem",
+                    maxWidth: "1000px",
+                    marginLeft: "auto",
+                    marginRight: "auto",
+                }}
+            >
 
-                <a
-                    href="tel:0383582538"
+                {/* LEFT INFO */}
+                <motion.div
+                    variants={fadeUp}
+                    initial="hidden"
+                    animate="show"
+                    transition={{ duration: 0.5 }}
+                >
+                    <h2 style={{ fontSize: "1.6rem", fontWeight: "600" }}>
+                        Salon 93
+                    </h2>
+
+                    <p style={{ marginTop: "1rem", color: "#666", lineHeight: "1.6" }}>
+                        Premium women’s hair salon located in Taylors Hill.
+                        Specialising in colour, cuts, styling and treatments.
+                    </p>
+
+                    <div style={{ marginTop: "2rem", color: "#444" }}>
+                        <p>📍 7/127 Gourlay Rd, Taylors Hill VIC</p>
+                        <p>📞 +61 3 8358 2538</p>
+                        <p>⏰ Mon - Sat: 9am - 6pm</p>
+                    </div>
+                </motion.div>
+
+                {/* FORM */}
+                <motion.form
+                    variants={fadeUp}
+                    initial="hidden"
+                    animate="show"
+                    transition={{ duration: 0.6 }}
                     style={{
-                        display: "inline-block",
-                        marginTop: "2rem",
-                        padding: "1rem 1.5rem",
-                        background: "#000",
-                        color: "#fff",
-                        borderRadius: "8px",
-                        textDecoration: "none"
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "1rem",
+                        padding: "2rem",
+                        border: "1px solid #eee",
+                        borderRadius: "16px",
+                        background: "#fafafa",
                     }}
                 >
-                    Call Now
-                </a>
+                    <input
+                        placeholder="Full Name"
+                        style={inputStyle}
+                    />
+
+                    <input
+                        placeholder="Phone Number"
+                        style={inputStyle}
+                    />
+
+                    <input
+                        placeholder="Email"
+                        style={inputStyle}
+                    />
+
+                    <textarea
+                        placeholder="What would you like done?"
+                        rows="5"
+                        style={inputStyle}
+                    />
+
+                    <button
+                        type="button"
+                        style={{
+                            marginTop: "1rem",
+                            padding: "1rem",
+                            background: "#000",
+                            color: "#fff",
+                            borderRadius: "999px",
+                            border: "none",
+                            cursor: "pointer",
+                            fontWeight: "600",
+                        }}
+                    >
+                        Send Request
+                    </button>
+                </motion.form>
 
             </div>
         </main>
     );
 }
 
-const card = {
-    marginTop: "2rem",
-    padding: "2rem",
-    borderRadius: "12px",
-    background: "#fafafa",
-    border: "1px solid #eee"
+/* INPUT STYLE */
+const inputStyle = {
+    padding: "1rem",
+    borderRadius: "10px",
+    border: "1px solid #ddd",
+    outline: "none",
+    fontSize: "1rem",
 };
