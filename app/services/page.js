@@ -1,73 +1,108 @@
+"use client";
+
+import { motion } from "framer-motion";
+
+const fadeUp = {
+    hidden: { opacity: 0, y: 40 },
+    show: { opacity: 1, y: 0 }
+};
+
+const services = [
+    {
+        title: "Haircuts",
+        desc: "Precision cuts tailored to your face shape and style.",
+        img: "/images/haircut.jpg",
+    },
+    {
+        title: "Colour",
+        desc: "From natural tones to full transformations and balayage.",
+        img: "/images/colour.jpg",
+    },
+    {
+        title: "Styling",
+        desc: "Blow waves, event styling, and everyday glam looks.",
+        img: "/images/styling.jpg",
+    },
+    {
+        title: "Treatments",
+        desc: "Restore shine, strength, and hair health.",
+        img: "/images/treatment.jpg",
+    },
+];
+
 export default function Services() {
     return (
-        <main style={{ padding: "5rem 2rem" }}>
-            <div style={{ maxWidth: "1000px", margin: "0 auto" }}>
+        <main style={{ padding: "6rem 2rem", background: "#fff" }}>
 
+            {/* HEADER */}
+            <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto" }}
+            >
                 <h1 style={{ fontSize: "3rem", fontWeight: "700" }}>
                     Our Services
                 </h1>
 
-                <p style={{ marginTop: "1rem", color: "#666", fontSize: "1.1rem" }}>
-                    Premium hair services tailored for women
+                <p style={{ marginTop: "1rem", color: "#666" }}>
+                    Premium hair care tailored for women
                 </p>
+            </motion.div>
 
-                <div style={{
-                    marginTop: "3rem",
+            {/* GRID */}
+            <div
+                style={{
+                    marginTop: "4rem",
                     display: "grid",
-                    gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-                    gap: "2rem"
-                }}>
+                    gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+                    gap: "2rem",
+                    maxWidth: "1100px",
+                    marginLeft: "auto",
+                    marginRight: "auto",
+                }}
+            >
+                {services.map((item, i) => (
+                    <motion.div
+                        key={i}
+                        variants={fadeUp}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.3 }}
+                        transition={{ duration: 0.4, delay: i * 0.1 }}
+                        whileHover={{ scale: 1.03 }}
+                        style={{
+                            borderRadius: "16px",
+                            overflow: "hidden",
+                            border: "1px solid #eee",
+                            background: "#fafafa",
+                            cursor: "pointer",
+                        }}
+                    >
+                        {/* IMAGE */}
+                        <img
+                            src={item.img}
+                            alt={item.title}
+                            style={{
+                                width: "100%",
+                                height: "200px",
+                                objectFit: "cover",
+                            }}
+                        />
 
-                    {/* HAIRCUTS */}
-                    <div style={box}>
-                        <img src="/images/haircut.jpg" style={imgStyle} />
-                        <h3>Haircuts</h3>
-                        <p>Precision cuts tailored to your style and face shape.</p>
-                    </div>
+                        {/* CONTENT */}
+                        <div style={{ padding: "1.5rem" }}>
+                            <h3 style={{ fontSize: "1.3rem", fontWeight: "600" }}>
+                                {item.title}
+                            </h3>
 
-                    {/* COLOUR */}
-                    <div style={box}>
-                        <img src="/images/colour.jpg" style={imgStyle} />
-                        <h3>Colour</h3>
-                        <p>From natural tones to full transformations and balayage.</p>
-                    </div>
-
-                    {/* STYLING */}
-                    <div style={box}>
-                        <img src="/images/styling.jpg" style={imgStyle} />
-                        <h3>Styling</h3>
-                        <p>Blow waves, events, and everyday styling.</p>
-                    </div>
-
-                    {/* TREATMENTS */}
-                    <div style={box}>
-                        <img src="/images/treatment.jpg" style={imgStyle} />
-                        <h3>Treatments</h3>
-                        <p>Restore strength, shine, and hair health.</p>
-                    </div>
-
-                </div>
-
+                            <p style={{ marginTop: "0.5rem", color: "#666" }}>
+                                {item.desc}
+                            </p>
+                        </div>
+                    </motion.div>
+                ))}
             </div>
         </main>
     );
 }
-
-/* CARD STYLE */
-const box = {
-    padding: "1.5rem",
-    border: "1px solid #eee",
-    borderRadius: "12px",
-    background: "#fafafa",
-    transition: "0.2s ease",
-};
-
-/* IMAGE STYLE */
-const imgStyle = {
-    width: "100%",
-    height: "250px",
-    objectFit: "cover",
-    objectPosition: "center",
-    borderRadius: "10px",
-    marginBottom: "1rem"
-};
