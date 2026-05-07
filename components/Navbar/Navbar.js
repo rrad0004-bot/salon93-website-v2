@@ -53,13 +53,7 @@ export default function Navbar() {
                     </Link>
 
                     {/* DESKTOP MENU */}
-                    <nav
-                        style={{
-                            display: "flex",
-                            gap: "1.5rem",
-                        }}
-                        className="desktop-nav"
-                    >
+                    <nav className="desktop-nav">
                         {navLinks.map((link) => (
                             <Link
                                 key={link.href}
@@ -76,17 +70,7 @@ export default function Navbar() {
                     </nav>
 
                     {/* HAMBURGER (MOBILE) */}
-                    <button
-                        onClick={() => setOpen(true)}
-                        style={{
-                            fontSize: "1.8rem",
-                            background: "none",
-                            border: "none",
-                            cursor: "pointer",
-                            display: "none",
-                        }}
-                        className="hamburger"
-                    >
+                    <button onClick={() => setOpen(true)} className="hamburger">
                         ☰
                     </button>
                 </div>
@@ -167,13 +151,27 @@ export default function Navbar() {
 
             {/* RESPONSIVE STYLES */}
             <style jsx>{`
+        .desktop-nav {
+          display: flex;
+          gap: 1.5rem;
+        }
+
+        .hamburger {
+          display: none;
+          font-size: 1.8rem;
+          background: none;
+          border: none;
+          cursor: pointer;
+          color: #000;
+        }
+
         @media (max-width: 768px) {
           .desktop-nav {
             display: none;
           }
 
           .hamburger {
-            display: block !important;
+            display: block;
           }
         }
       `}</style>
