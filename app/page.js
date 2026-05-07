@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { PrimaryButton, OutlineButton } from "./components/ui/button";
-import { Card } from "./components/ui/card";
+import { PrimaryButton, OutlineButton } from "../components/ui/button";
+import { Card } from "../components/ui/card";
 
 /* ANIMATIONS */
 const fadeUp = {
