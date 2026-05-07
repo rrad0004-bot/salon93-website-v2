@@ -86,7 +86,7 @@ export default function Services() {
                             style={{
                                 width: "100%",
                                 height: "200px",
-                                objectFit: "cover",
+                                objectFit: "contain",
                             }}
                         />
 
