@@ -1,5 +1,12 @@
 import "./globals.css";
 import Navbar from "../components/Navbar/Navbar";
+import Footer from "../components/Footer/Footer";
+
+export const metadata = {
+  title: "Salon 93 | Luxury Hair Salon Taylors Hill",
+  description:
+    "Premium women’s hair care specialising in colour, styling, and treatments in Taylors Hill VIC.",
+};
 
 export default function RootLayout({ children }) {
   return (
@@ -26,10 +33,11 @@ export default function RootLayout({ children }) {
       >
         <Navbar />
 
-        {/* PAGE CONTENT WRAPPER */}
-        <main style={{ paddingTop: "80px" }}>
-          {children}
-        </main>
+        {/* PAGE CONTENT */}
+        <main style={{ paddingTop: "80px" }}>{children}</main>
+
+        <Footer />
+
       </body>
     </html>
   );

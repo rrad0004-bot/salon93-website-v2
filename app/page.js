@@ -267,6 +267,45 @@ export default function Home() {
           </a>
         </div>
       </motion.section>
+
+      {/* FOOTER INFO SECTION */}
+      <section
+        style={{
+          padding: "4rem 2rem",
+          background: "#fff",
+          textAlign: "center",
+          borderTop: "1px solid #eee",
+        }}
+      >
+        <h2 style={{ fontSize: "2rem", fontWeight: "700" }}>
+          Visit Salon 93
+        </h2>
+
+        <p
+          style={{
+            marginTop: "1rem",
+            color: "#666",
+            maxWidth: "600px",
+            marginLeft: "auto",
+            marginRight: "auto",
+            lineHeight: "1.6",
+          }}
+        >
+          Your local luxury hair salon in Taylors Hill — premium care, personalised styling,
+          and a calm modern experience.
+        </p>
+
+        <div
+          style={{
+            marginTop: "2rem",
+            color: "#444",
+            lineHeight: "1.8",
+          }}
+        >
+          <p>📍 7/127 Gourlay Rd, Taylors Hill VIC 3037</p>
+          <p>📞 +61 3 8358 2538</p>
+        </div>
+      </section>
     </>
   );
 }
