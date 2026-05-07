@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Card } from "../components/ui/card";
-import { PrimaryButton } from "../components/ui/button";
+import { Card } from "components/ui/card";
+import { PrimaryButton } from "components/ui/button";
 
 const fadeUp = {
     hidden: { opacity: 0, y: 40 },
