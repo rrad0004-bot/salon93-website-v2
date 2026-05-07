@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Card } from "../components/ui/card";
 
 const fadeUp = {
     hidden: { opacity: 0, y: 40 },
@@ -70,36 +71,37 @@ export default function Services() {
                         whileInView="show"
                         viewport={{ once: true, amount: 0.3 }}
                         transition={{ duration: 0.4, delay: i * 0.1 }}
-                        whileHover={{ scale: 1.03 }}
-                        style={{
-                            borderRadius: "16px",
-                            overflow: "hidden",
-                            border: "1px solid #eee",
-                            background: "#fafafa",
-                            cursor: "pointer",
-                        }}
+                        whileHover={{ y: -6 }}
                     >
-                        {/* IMAGE */}
-                        <img
-                            src={item.img}
-                            alt={item.title}
-                            style={{
-                                width: "100%",
-                                height: "200px",
-                                objectFit: "contain",
-                            }}
-                        />
+                        <Card style={{ padding: 0, overflow: "hidden" }}>
 
-                        {/* CONTENT */}
-                        <div style={{ padding: "1.5rem" }}>
-                            <h3 style={{ fontSize: "1.3rem", fontWeight: "600" }}>
-                                {item.title}
-                            </h3>
+                            {/* IMAGE */}
+                            <div style={{ height: "220px", overflow: "hidden" }}>
+                                <img
+                                    src={item.img}
+                                    alt={item.title}
+                                    style={{
+                                        width: "100%",
+                                        height: "100%",
+                                        objectFit: "cover",
+                                        objectPosition: "center",
+                                        transition: "transform 0.3s ease",
+                                    }}
+                                />
+                            </div>
 
-                            <p style={{ marginTop: "0.5rem", color: "#666" }}>
-                                {item.desc}
-                            </p>
-                        </div>
+                            {/* CONTENT */}
+                            <div style={{ padding: "1.5rem" }}>
+                                <h3 style={{ fontSize: "1.3rem", fontWeight: "600" }}>
+                                    {item.title}
+                                </h3>
+
+                                <p style={{ marginTop: "0.5rem", color: "#666", lineHeight: "1.6" }}>
+                                    {item.desc}
+                                </p>
+                            </div>
+
+                        </Card>
                     </motion.div>
                 ))}
             </div>

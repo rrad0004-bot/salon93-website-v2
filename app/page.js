@@ -2,44 +2,18 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { PrimaryButton, OutlineButton } from "./components/ui/button";
+import { Card } from "./components/ui/card";
 
 /* ANIMATIONS */
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
-  show: { opacity: 1, y: 0 }
+  show: { opacity: 1, y: 0 },
 };
 
 const fadeIn = {
   hidden: { opacity: 0 },
-  show: { opacity: 1 }
-};
-
-/* STYLES */
-const cardStyle = {
-  padding: "2rem",
-  border: "1px solid #eee",
-  borderRadius: "12px",
-  textAlign: "left",
-  background: "#fafafa",
-};
-
-const serviceCard = {
-  padding: "2.2rem",
-  borderRadius: "14px",
-  background: "#fafafa",
-  border: "1px solid #eee",
-  textAlign: "left",
-};
-
-const cardTitle = {
-  fontSize: "1.3rem",
-  fontWeight: "600",
-  marginBottom: "0.8rem",
-};
-
-const cardText = {
-  color: "#666",
-  lineHeight: "1.6",
+  show: { opacity: 1 },
 };
 
 export default function Home() {
@@ -67,12 +41,15 @@ export default function Home() {
             position: "absolute",
             inset: 0,
             background:
-              "linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.75))",
+              "linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0.75))",
           }}
         />
 
         {/* CONTENT */}
         <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: "easeOut" }}
           style={{
             position: "relative",
             maxWidth: "850px",
@@ -80,23 +57,41 @@ export default function Home() {
             flexDirection: "column",
             alignItems: "center",
           }}
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: "easeOut" }}
         >
-          <p style={{ letterSpacing: "3px", fontSize: "0.8rem", opacity: 0.8 }}>
+          <p
+            style={{
+              letterSpacing: "3px",
+              fontSize: "0.8rem",
+              opacity: 0.75,
+              textTransform: "uppercase",
+            }}
+          >
             Luxury Hair Salon • Taylors Hill
           </p>
 
-          <h1 style={{ fontSize: "4rem", fontWeight: "700", marginTop: "1rem" }}>
+          <h1
+            style={{
+              fontSize: "4rem",
+              fontWeight: "700",
+              marginTop: "1rem",
+            }}
+          >
             Salon 93
           </h1>
 
-          <p style={{ marginTop: "1.5rem", maxWidth: "600px", opacity: 0.85 }}>
-            Premium women’s hair care specialising in colour, styling and treatments
-            designed to enhance your natural beauty.
+          <p
+            style={{
+              marginTop: "1.5rem",
+              maxWidth: "600px",
+              opacity: 0.85,
+              lineHeight: "1.6",
+            }}
+          >
+            Premium women’s hair care specialising in colour, styling and
+            treatments designed to enhance your natural beauty.
           </p>
 
+          {/* BUTTONS (FIXED) */}
           <div
             style={{
               marginTop: "2.5rem",
@@ -106,35 +101,22 @@ export default function Home() {
               justifyContent: "center",
             }}
           >
-            <Link
-              href="/contact"
-              style={{
-                padding: "1rem 1.6rem",
-                background: "#fff",
-                color: "#000",
-                borderRadius: "999px",
-                textDecoration: "none",
-                fontWeight: "600",
-              }}
-            >
-              Book Appointment
+            <Link href="/contact">
+              <PrimaryButton>Book Appointment</PrimaryButton>
             </Link>
 
-            <a
-              href="tel:+61383582538"
-              style={{
-                padding: "1rem 1.6rem",
-                border: "1px solid #fff",
-                color: "#fff",
-                borderRadius: "999px",
-                textDecoration: "none",
-              }}
-            >
-              Call Now
+            <a href="tel:+61383582538">
+              <OutlineButton>Call Now</OutlineButton>
             </a>
           </div>
 
-          <p style={{ marginTop: "2rem", fontSize: "0.9rem", opacity: 0.6 }}>
+          <p
+            style={{
+              marginTop: "2rem",
+              fontSize: "0.9rem",
+              opacity: 0.6,
+            }}
+          >
             📍 Taylors Hill VIC 3037
           </p>
         </motion.div>
@@ -146,10 +128,14 @@ export default function Home() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.6 }}
-        style={{ padding: "6rem 2rem", textAlign: "center" }}
+        style={{
+          padding: "6rem 2rem",
+          textAlign: "center",
+        }}
       >
-        <h2 style={{ fontSize: "2.5rem", fontWeight: "700" }}>Our Services</h2>
+        <h2 style={{ fontSize: "2.5rem", fontWeight: "700" }}>
+          Our Services
+        </h2>
 
         <p style={{ color: "#666", marginTop: "1rem" }}>
           Tailored hair care designed for confidence and beauty
@@ -162,7 +148,8 @@ export default function Home() {
             gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
             gap: "2rem",
             maxWidth: "1100px",
-            margin: "3rem auto 0",
+            marginLeft: "auto",
+            marginRight: "auto",
           }}
         >
           {[
@@ -178,10 +165,11 @@ export default function Home() {
               whileInView="show"
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
-              style={serviceCard}
             >
-              <h3 style={cardTitle}>{item[0]}</h3>
-              <p style={cardText}>{item[1]}</p>
+              <Card>
+                <h3>{item[0]}</h3>
+                <p style={{ color: "#666" }}>{item[1]}</p>
+              </Card>
             </motion.div>
           ))}
         </div>
@@ -193,7 +181,6 @@ export default function Home() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.7 }}
         style={{
           padding: "5rem 2rem",
           background: "#f9f9f9",
@@ -204,7 +191,7 @@ export default function Home() {
           Why Choose Salon 93
         </h2>
 
-        <p style={{ color: "#666", marginTop: "1rem", maxWidth: "700px", margin: "0 auto" }}>
+        <p style={{ color: "#666", marginTop: "1rem" }}>
           Precision, care, and personalised styling for every client.
         </p>
 
@@ -215,7 +202,8 @@ export default function Home() {
             gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
             gap: "2rem",
             maxWidth: "1000px",
-            margin: "3rem auto 0",
+            marginLeft: "auto",
+            marginRight: "auto",
           }}
         >
           {[
@@ -230,10 +218,11 @@ export default function Home() {
               whileInView="show"
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
-              style={cardStyle}
             >
-              <h3>{item[0]}</h3>
-              <p style={{ color: "#666" }}>{item[1]}</p>
+              <Card>
+                <h3>{item[0]}</h3>
+                <p style={{ color: "#666" }}>{item[1]}</p>
+              </Card>
             </motion.div>
           ))}
         </div>
@@ -245,7 +234,6 @@ export default function Home() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
         style={{
           padding: "5rem 2rem",
           background: "#000",
@@ -270,31 +258,12 @@ export default function Home() {
             flexWrap: "wrap",
           }}
         >
-          <Link
-            href="/contact"
-            style={{
-              padding: "1rem 1.6rem",
-              background: "#fff",
-              color: "#000",
-              borderRadius: "999px",
-              textDecoration: "none",
-              fontWeight: "600",
-            }}
-          >
-            Book Appointment
+          <Link href="/contact">
+            <PrimaryButton>Book Appointment</PrimaryButton>
           </Link>
 
-          <a
-            href="tel:+61383582538"
-            style={{
-              padding: "1rem 1.6rem",
-              border: "1px solid #fff",
-              color: "#fff",
-              borderRadius: "999px",
-              textDecoration: "none",
-            }}
-          >
-            Call Now
+          <a href="tel:+61383582538">
+            <OutlineButton>Call Now</OutlineButton>
           </a>
         </div>
       </motion.section>

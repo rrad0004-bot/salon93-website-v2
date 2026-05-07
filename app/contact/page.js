@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Card } from "../components/ui/card";
+import { PrimaryButton } from "../components/ui/button";
 
 const fadeUp = {
     hidden: { opacity: 0, y: 40 },
@@ -47,20 +49,22 @@ export default function Contact() {
                     animate="show"
                     transition={{ duration: 0.5 }}
                 >
-                    <h2 style={{ fontSize: "1.6rem", fontWeight: "600" }}>
-                        Salon 93
-                    </h2>
+                    <Card>
+                        <h2 style={{ fontSize: "1.6rem", fontWeight: "600" }}>
+                            Salon 93
+                        </h2>
 
-                    <p style={{ marginTop: "1rem", color: "#666", lineHeight: "1.6" }}>
-                        Premium women’s hair salon located in Taylors Hill.
-                        Specialising in colour, cuts, styling and treatments.
-                    </p>
+                        <p style={{ marginTop: "1rem", color: "#666", lineHeight: "1.6" }}>
+                            Premium women’s hair salon located in Taylors Hill.
+                            Specialising in colour, cuts, styling and treatments.
+                        </p>
 
-                    <div style={{ marginTop: "2rem", color: "#444" }}>
-                        <p>📍 7/127 Gourlay Rd, Taylors Hill VIC</p>
-                        <p>📞 +61 3 8358 2538</p>
-                        <p>⏰ Mon - Sat: 9am - 6pm</p>
-                    </div>
+                        <div style={{ marginTop: "2rem", color: "#444", lineHeight: "1.8" }}>
+                            <p>📍 7/127 Gourlay Rd, Taylors Hill VIC</p>
+                            <p>📞 +61 3 8358 2538</p>
+                            <p>⏰ Mon - Sat: 9am - 6pm</p>
+                        </div>
+                    </Card>
                 </motion.div>
 
                 {/* FORM */}
@@ -73,48 +77,22 @@ export default function Contact() {
                         display: "flex",
                         flexDirection: "column",
                         gap: "1rem",
-                        padding: "2rem",
-                        border: "1px solid #eee",
-                        borderRadius: "16px",
-                        background: "#fafafa",
                     }}
                 >
-                    <input
-                        placeholder="Full Name"
-                        style={inputStyle}
-                    />
 
-                    <input
-                        placeholder="Phone Number"
-                        style={inputStyle}
-                    />
-
-                    <input
-                        placeholder="Email"
-                        style={inputStyle}
-                    />
-
+                    <input placeholder="Full Name" style={inputStyle} />
+                    <input placeholder="Phone Number" style={inputStyle} />
+                    <input placeholder="Email" style={inputStyle} />
                     <textarea
                         placeholder="What would you like done?"
                         rows="5"
-                        style={inputStyle}
+                        style={{ ...inputStyle, resize: "none" }}
                     />
 
-                    <button
-                        type="button"
-                        style={{
-                            marginTop: "1rem",
-                            padding: "1rem",
-                            background: "#000",
-                            color: "#fff",
-                            borderRadius: "999px",
-                            border: "none",
-                            cursor: "pointer",
-                            fontWeight: "600",
-                        }}
-                    >
+                    <PrimaryButton>
                         Send Request
-                    </button>
+                    </PrimaryButton>
+
                 </motion.form>
 
             </div>
@@ -125,8 +103,9 @@ export default function Contact() {
 /* INPUT STYLE */
 const inputStyle = {
     padding: "1rem",
-    borderRadius: "10px",
-    border: "1px solid #ddd",
+    borderRadius: "12px",
+    border: "1px solid #e5e5e5",
     outline: "none",
     fontSize: "1rem",
+    transition: "all 0.2s ease",
 };

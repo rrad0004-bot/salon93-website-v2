@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Card } from "../components/ui/card";
 
 const fadeUp = {
     hidden: { opacity: 0, y: 40 },
@@ -43,18 +44,24 @@ export default function About() {
             >
 
                 {/* IMAGE */}
-                <motion.img
-                    src="/images/about1.jpg"
-                    alt="Salon interior"
-                    style={{
-                        width: "100%",
-                        borderRadius: "16px",
-                        objectFit: "cover",
-                    }}
+                <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.7 }}
-                />
+                >
+                    <Card style={{ padding: 0, overflow: "hidden" }}>
+                        <img
+                            src="/images/about1.jpg"
+                            alt="Salon interior"
+                            style={{
+                                width: "100%",
+                                height: "420px",
+                                objectFit: "cover",
+                                objectPosition: "center",
+                            }}
+                        />
+                    </Card>
+                </motion.div>
 
                 {/* TEXT */}
                 <motion.div
@@ -104,26 +111,29 @@ export default function About() {
                     }}
                 >
 
-                    <div style={cardStyle}>
-                        <h3>✨ Precision</h3>
-                        <p style={{ color: "#666" }}>
-                            Every cut and colour is carefully crafted.
-                        </p>
-                    </div>
-
-                    <div style={cardStyle}>
-                        <h3>💎 Quality</h3>
-                        <p style={{ color: "#666" }}>
-                            We use only premium salon-grade products.
-                        </p>
-                    </div>
-
-                    <div style={cardStyle}>
-                        <h3>🤍 Care</h3>
-                        <p style={{ color: "#666" }}>
-                            Every client experience matters deeply to us.
-                        </p>
-                    </div>
+                    {[
+                        ["✨ Precision", "Every cut and colour is carefully crafted."],
+                        ["💎 Quality", "We use only premium salon-grade products."],
+                        ["🤍 Care", "Every client experience matters deeply to us."]
+                    ].map((item, i) => (
+                        <motion.div
+                            key={i}
+                            variants={fadeUp}
+                            initial="hidden"
+                            whileInView="show"
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.4, delay: i * 0.1 }}
+                        >
+                            <Card>
+                                <h3 style={{ fontSize: "1.2rem", fontWeight: "600" }}>
+                                    {item[0]}
+                                </h3>
+                                <p style={{ marginTop: "0.5rem", color: "#666" }}>
+                                    {item[1]}
+                                </p>
+                            </Card>
+                        </motion.div>
+                    ))}
 
                 </div>
             </motion.div>
@@ -131,11 +141,3 @@ export default function About() {
         </main>
     );
 }
-
-const cardStyle = {
-    padding: "2rem",
-    border: "1px solid #eee",
-    borderRadius: "14px",
-    background: "#fafafa",
-    textAlign: "left",
-};
