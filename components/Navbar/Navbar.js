@@ -1,75 +1,182 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
-    const [scrolled, setScrolled] = useState(false);
+    const [open, setOpen] = useState(false);
 
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 10);
-        };
-
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+    const navLinks = [
+        { name: "Home", href: "/" },
+        { name: "Services", href: "/services" },
+        { name: "About", href: "/about" },
+        { name: "Contact", href: "/contact" },
+    ];
 
     return (
-        <nav
-            style={{
-                position: "fixed",
-                top: 0,
-                left: 0,
-                width: "100%",
-                zIndex: 1000,
-                padding: "1rem 2rem",
-                transition: "all 0.3s ease",
-                background: scrolled
-                    ? "rgba(255,255,255,0.7)"
-                    : "transparent",
-                backdropFilter: scrolled ? "blur(12px)" : "none",
-                borderBottom: scrolled ? "1px solid rgba(0,0,0,0.08)" : "none",
-            }}
-        >
-            <div
+        <>
+            {/* TOP NAVBAR */}
+            <header
                 style={{
-                    maxWidth: "1100px",
-                    margin: "0 auto",
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
+                    position: "fixed",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    zIndex: 1000,
+                    background: "rgba(255,255,255,0.9)",
+                    backdropFilter: "blur(10px)",
+                    borderBottom: "1px solid #eee",
                 }}
             >
-                {/* LOGO */}
-                <Link
-                    href="/"
+                <div
                     style={{
-                        fontWeight: "700",
-                        fontSize: "1.1rem",
-                        textDecoration: "none",
-                        color: "#000",
+                        maxWidth: "1100px",
+                        margin: "0 auto",
+                        padding: "1rem 1.5rem",
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
                     }}
                 >
-                    Salon 93
-                </Link>
+                    {/* LOGO */}
+                    <Link
+                        href="/"
+                        style={{
+                            fontWeight: "700",
+                            fontSize: "1.2rem",
+                            textDecoration: "none",
+                            color: "#000",
+                        }}
+                    >
+                        Salon 93
+                    </Link>
 
-                {/* LINKS */}
-                <div style={{ display: "flex", gap: "1.5rem" }}>
-                    <Link style={linkStyle} href="/">Home</Link>
-                    <Link style={linkStyle} href="/services">Services</Link>
-                    <Link style={linkStyle} href="/about">About</Link>
-                    <Link style={linkStyle} href="/contact">Contact</Link>
+                    {/* DESKTOP MENU */}
+                    <nav
+                        style={{
+                            display: "flex",
+                            gap: "1.5rem",
+                        }}
+                        className="desktop-nav"
+                    >
+                        {navLinks.map((link) => (
+                            <Link
+                                key={link.href}
+                                href={link.href}
+                                style={{
+                                    textDecoration: "none",
+                                    color: "#333",
+                                    fontWeight: "500",
+                                }}
+                            >
+                                {link.name}
+                            </Link>
+                        ))}
+                    </nav>
+
+                    {/* HAMBURGER (MOBILE) */}
+                    <button
+                        onClick={() => setOpen(true)}
+                        style={{
+                            fontSize: "1.8rem",
+                            background: "none",
+                            border: "none",
+                            cursor: "pointer",
+                            display: "none",
+                        }}
+                        className="hamburger"
+                    >
+                        ☰
+                    </button>
                 </div>
-            </div>
-        </nav>
+            </header>
+
+            {/* MOBILE MENU */}
+            <AnimatePresence>
+                {open && (
+                    <>
+                        {/* BACKDROP */}
+                        <motion.div
+                            onClick={() => setOpen(false)}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            style={{
+                                position: "fixed",
+                                inset: 0,
+                                background: "rgba(0,0,0,0.5)",
+                                zIndex: 999,
+                            }}
+                        />
+
+                        {/* SLIDE MENU */}
+                        <motion.div
+                            initial={{ x: "100%" }}
+                            animate={{ x: 0 }}
+                            exit={{ x: "100%" }}
+                            transition={{ type: "tween", duration: 0.3 }}
+                            style={{
+                                position: "fixed",
+                                top: 0,
+                                right: 0,
+                                width: "280px",
+                                height: "100vh",
+                                background: "#fff",
+                                zIndex: 1000,
+                                padding: "2rem",
+                                display: "flex",
+                                flexDirection: "column",
+                                gap: "1.5rem",
+                            }}
+                        >
+                            {/* CLOSE */}
+                            <button
+                                onClick={() => setOpen(false)}
+                                style={{
+                                    alignSelf: "flex-end",
+                                    fontSize: "1.5rem",
+                                    background: "none",
+                                    border: "none",
+                                    cursor: "pointer",
+                                }}
+                            >
+                                ✕
+                            </button>
+
+                            {/* LINKS */}
+                            {navLinks.map((link) => (
+                                <Link
+                                    key={link.href}
+                                    href={link.href}
+                                    onClick={() => setOpen(false)}
+                                    style={{
+                                        textDecoration: "none",
+                                        fontSize: "1.2rem",
+                                        color: "#111",
+                                        fontWeight: "500",
+                                    }}
+                                >
+                                    {link.name}
+                                </Link>
+                            ))}
+                        </motion.div>
+                    </>
+                )}
+            </AnimatePresence>
+
+            {/* RESPONSIVE STYLES */}
+            <style jsx>{`
+        @media (max-width: 768px) {
+          .desktop-nav {
+            display: none;
+          }
+
+          .hamburger {
+            display: block !important;
+          }
+        }
+      `}</style>
+        </>
     );
 }
-
-const linkStyle = {
-    textDecoration: "none",
-    color: "#000",
-    fontSize: "0.95rem",
-    opacity: 0.8,
-    transition: "0.2s",
-};
