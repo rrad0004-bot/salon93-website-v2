@@ -5,12 +5,22 @@ export function PrimaryButton({ children }) {
         <button
             style={{
                 padding: "1rem 1.6rem",
-                background: colors.black,
-                color: colors.white,
-                borderRadius: radius.pill,
-                border: "none",
+                background: "linear-gradient(135deg, #111, #1f1f1f)",
+                color: "#fff",
+                borderRadius: "999px",
+                border: "1px solid rgba(255,255,255,0.08)",
                 cursor: "pointer",
                 fontWeight: "600",
+                boxShadow: "0 10px 25px rgba(0,0,0,0.25)",
+                transition: "all 0.2s ease",
+            }}
+            onMouseOver={(e) => {
+                e.currentTarget.style.transform = "translateY(-2px)";
+                e.currentTarget.style.boxShadow = "0 15px 35px rgba(0,0,0,0.35)";
+            }}
+            onMouseOut={(e) => {
+                e.currentTarget.style.transform = "translateY(0px)";
+                e.currentTarget.style.boxShadow = "0 10px 25px rgba(0,0,0,0.25)";
             }}
         >
             {children}
