@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const cardStyle = {
   padding: "2rem",
@@ -34,79 +35,98 @@ export default function Home() {
       {/* HERO SECTION */}
       <section
         style={{
-          minHeight: "90vh",
+          minHeight: "100vh",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          padding: "5rem 2rem",
+          padding: "6rem 2rem",
           textAlign: "center",
           backgroundImage: "url('/images/hero.jpg')",
-          backgroundSize: "cover",
+          backgroundSize: "110%",
           backgroundPosition: "center",
           position: "relative",
-          color: "#fff"
+          color: "#fff",
         }}
       >
 
-        {/* ✅ DARK OVERLAY (VERY IMPORTANT) */}
+        {/* OVERLAY */}
         <div
           style={{
             position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            background: "rgba(0,0,0,0.55)"
+            inset: 0,
+            background: "linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.7))"
           }}
         />
 
-        {/* ✅ CONTENT (must be relative) */}
-        <div style={{ position: "relative", maxWidth: "850px" }}>
+        {/* CONTENT WRAPPER */}
+        <motion.div
+          style={{
+            position: "relative",
+            maxWidth: "850px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center"
+          }}
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: "easeOut" }}
+        >
 
-          <p style={{ letterSpacing: "2px", color: "rgba(255,255,255,0.7)", fontSize: "0.85rem" }}>
-            LUXURY HAIR SALON • TAYLORS HILL
+          {/* SMALL TAGLINE */}
+          <p
+            style={{
+              letterSpacing: "3px",
+              fontSize: "0.8rem",
+              color: "rgba(255,255,255,0.7)",
+              textTransform: "uppercase"
+            }}
+          >
+            Luxury Hair Salon • Taylors Hill
           </p>
 
+          {/* MAIN TITLE */}
           <h1
             style={{
-              fontSize: "4rem",
+              fontSize: "4.2rem",
               fontWeight: "700",
-              marginTop: "1rem",
-              letterSpacing: "-1px",
+              marginTop: "1.2rem",
+              letterSpacing: "-1.5px",
             }}
           >
             Salon 93
           </h1>
 
+          {/* SUBTEXT */}
           <p
             style={{
-              marginTop: "1.2rem",
-              fontSize: "1.25rem",
+              marginTop: "1.5rem",
+              fontSize: "1.2rem",
               color: "rgba(255,255,255,0.85)",
-              lineHeight: "1.6",
+              lineHeight: "1.7",
+              maxWidth: "600px"
             }}
           >
             Premium women’s hair care specialising in colour, styling,
             extensions and treatments designed to enhance your natural beauty.
           </p>
 
-          {/* CTA BUTTONS */}
+          {/* BUTTONS */}
           <div
             style={{
-              marginTop: "2.5rem",
+              marginTop: "3rem",
               display: "flex",
               gap: "1rem",
-              justifyContent: "center",
               flexWrap: "wrap",
+              justifyContent: "center"
             }}
           >
             <Link
               href="/contact"
               style={{
-                padding: "1rem 1.6rem",
+                padding: "1rem 1.8rem",
                 background: "#fff",
                 color: "#000",
-                borderRadius: "8px",
+                borderRadius: "999px",
                 textDecoration: "none",
                 fontWeight: "600",
               }}
@@ -117,10 +137,10 @@ export default function Home() {
             <a
               href="tel:+61383582538"
               style={{
-                padding: "1rem 1.6rem",
-                border: "1px solid #fff",
+                padding: "1rem 1.8rem",
+                border: "1px solid rgba(255,255,255,0.6)",
                 color: "#fff",
-                borderRadius: "8px",
+                borderRadius: "999px",
                 textDecoration: "none",
               }}
             >
@@ -128,11 +148,18 @@ export default function Home() {
             </a>
           </div>
 
-          <p style={{ marginTop: "2rem", color: "rgba(255,255,255,0.7)", fontSize: "0.9rem" }}>
+          {/* ADDRESS */}
+          <p
+            style={{
+              marginTop: "2.5rem",
+              fontSize: "0.9rem",
+              color: "rgba(255,255,255,0.65)"
+            }}
+          >
             📍 7/127 Gourlay Rd, Taylors Hill VIC 3037
           </p>
 
-        </div>
+        </motion.div>
       </section>
 
       {/* SERVICES SECTION */}
