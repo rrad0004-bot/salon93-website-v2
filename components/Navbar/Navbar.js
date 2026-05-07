@@ -70,9 +70,22 @@ export default function Navbar() {
                     </nav>
 
                     {/* HAMBURGER (MOBILE) */}
-                    <button onClick={() => setOpen(true)} className="hamburger">
-                        ☰
-                    </button>
+                    <motion.button
+                        onClick={() => setOpen((prev) => !prev)}
+                        className="hamburger"
+                        animate={{ rotate: open ? 90 : 0 }}
+                        transition={{ duration: 0.2 }}
+                        style={{
+                            fontSize: "1.8rem",
+                            background: "none",
+                            border: "none",
+                            cursor: "pointer",
+                            color: "#000",
+                            zIndex: 1100,
+                        }}
+                    >
+                        {open ? "✕" : "☰"}
+                    </motion.button>
                 </div>
             </header>
 
@@ -85,6 +98,7 @@ export default function Navbar() {
                             onClick={() => setOpen(false)}
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
+
                             exit={{ opacity: 0 }}
                             style={{
                                 position: "fixed",
@@ -99,7 +113,7 @@ export default function Navbar() {
                             initial={{ x: "100%" }}
                             animate={{ x: 0 }}
                             exit={{ x: "100%" }}
-                            transition={{ type: "tween", duration: 0.3 }}
+                            transition={{ type: "spring", stiffness: 120, damping: 18 }}
                             style={{
                                 position: "fixed",
                                 top: 0,
