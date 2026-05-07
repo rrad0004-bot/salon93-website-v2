@@ -44,7 +44,7 @@ export default function About() {
 
                 {/* IMAGE */}
                 <motion.img
-                    src="/images/about.jpg"
+                    src="/images/about1.jpg"
                     alt="Salon interior"
                     style={{
                         width: "100%",
