@@ -7,8 +7,16 @@ import { Card } from "../components/ui/card";
 
 /* ANIMATIONS */
 const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  show: { opacity: 1, y: 0 },
+  hidden: { opacity: 0, y: 25, filter: "blur(6px)" },
+  show: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: {
+      duration: 0.7,
+      ease: [0.25, 0.1, 0.25, 1]
+    }
+  }
 };
 
 const fadeIn = {
@@ -49,7 +57,10 @@ export default function Home() {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9 }}
+          transition={{
+            duration: 0.9,
+            ease: [0.25, 0.1, 0.25, 1]
+          }}
           style={{
             position: "relative",
             maxWidth: "720px",
@@ -173,7 +184,11 @@ export default function Home() {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
+              transition={{
+                duration: 0.5,
+                delay: i * 0.08,
+                ease: [0.25, 0.1, 0.25, 1]
+              }}
             >
               <Card>
                 <h3>{item[0]}</h3>
@@ -226,7 +241,11 @@ export default function Home() {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
+              transition={{
+                duration: 0.5,
+                delay: i * 0.08,
+                ease: [0.25, 0.1, 0.25, 1]
+              }}
             >
               <Card>
                 <h3>{item[0]}</h3>

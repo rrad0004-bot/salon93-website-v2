@@ -1,6 +1,7 @@
 import "./globals.css";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
+import MobileStickyCTA from "../components/MobileStickyCTA";
 
 export const metadata = {
   title: "Salon 93 | Luxury Hair Salon Taylors Hill",
@@ -37,6 +38,7 @@ export default function RootLayout({ children }) {
         <main style={{ paddingTop: "80px" }}>{children}</main>
 
         <Footer />
+        <MobileStickyCTA />
 
       </body>
     </html>

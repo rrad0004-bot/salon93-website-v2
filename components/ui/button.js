@@ -13,7 +13,7 @@ export function PrimaryButton({ children }) {
                 fontWeight: "600",
                 letterSpacing: "0.3px",
                 boxShadow: "0 8px 20px rgba(214,175,175,0.35)",
-                transition: "all 0.25s ease",
+                transition: "all 0.2s ease, transform 0.15s ease",
             }}
             onMouseOver={(e) => {
                 e.currentTarget.style.background = colors.primaryHover;
@@ -26,6 +26,13 @@ export function PrimaryButton({ children }) {
                 e.currentTarget.style.transform = "translateY(0px)";
                 e.currentTarget.style.boxShadow =
                     "0 8px 20px rgba(214,175,175,0.35)";
+            }}
+            onTouchStart={(e) => {
+                e.currentTarget.style.transform = "scale(0.97)";
+            }}
+
+            onTouchEnd={(e) => {
+                e.currentTarget.style.transform = "scale(1)";
             }}
         >
             {children}
@@ -49,7 +56,7 @@ export function OutlineButton({ children, variant = "light" }) {
                 cursor: "pointer",
                 fontWeight: "500",
                 backdropFilter: isDark ? "blur(6px)" : "none",
-                transition: "all 0.25s ease",
+                transition: "all 0.2s ease, transform 0.15s ease",
             }}
             onMouseOver={(e) => {
                 if (isDark) {
@@ -64,6 +71,13 @@ export function OutlineButton({ children, variant = "light" }) {
                 } else {
                     e.currentTarget.style.background = "rgba(0,0,0,0.03)";
                 }
+            }}
+            onTouchStart={(e) => {
+                e.currentTarget.style.transform = "scale(0.97)";
+            }}
+
+            onTouchEnd={(e) => {
+                e.currentTarget.style.transform = "scale(1)";
             }}
         >
             {children}
