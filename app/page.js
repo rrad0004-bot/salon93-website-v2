@@ -20,13 +20,14 @@ export default function Home() {
   return (
     <>
       {/* HERO */}
+      {/* HERO */}
       <section
         style={{
           minHeight: "100vh",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          padding: "6rem 2rem",
+          padding: "5rem 1.5rem",
           textAlign: "center",
           backgroundImage: "url('/images/hero.jpg')",
           backgroundSize: "cover",
@@ -41,7 +42,7 @@ export default function Home() {
             position: "absolute",
             inset: 0,
             background:
-              "linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0.75))",
+              "linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(0,0,0,0.75))",
           }}
         />
 
@@ -49,19 +50,20 @@ export default function Home() {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: "easeOut" }}
+          transition={{ duration: 0.9 }}
           style={{
             position: "relative",
-            maxWidth: "850px",
+            maxWidth: "720px",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
           }}
         >
+          {/* TAGLINE */}
           <p
             style={{
               letterSpacing: "3px",
-              fontSize: "0.8rem",
+              fontSize: "0.75rem",
               opacity: 0.75,
               textTransform: "uppercase",
             }}
@@ -69,29 +71,33 @@ export default function Home() {
             Luxury Hair Salon • Taylors Hill
           </p>
 
+          {/* TITLE */}
           <h1
             style={{
-              fontSize: "4rem",
+              fontSize: "clamp(2.5rem, 6vw, 4rem)",
               fontWeight: "700",
-              marginTop: "1rem",
+              marginTop: "1.2rem",
+              letterSpacing: "-1px",
             }}
           >
             Salon 93
           </h1>
 
+          {/* SUBTEXT */}
           <p
             style={{
-              marginTop: "1.5rem",
-              maxWidth: "600px",
+              marginTop: "1.3rem",
+              maxWidth: "520px",
+              fontSize: "1.05rem",
               opacity: 0.85,
-              lineHeight: "1.6",
+              lineHeight: "1.7",
             }}
           >
-            Premium women’s hair care specialising in colour, styling and
-            treatments designed to enhance your natural beauty.
+            Premium women’s hair care specialising in colour, styling and treatments
+            designed to enhance your natural beauty.
           </p>
 
-          {/* BUTTONS (FIXED) */}
+          {/* BUTTONS */}
           <div
             style={{
               marginTop: "2.5rem",
@@ -110,10 +116,11 @@ export default function Home() {
             </a>
           </div>
 
+          {/* LOCATION */}
           <p
             style={{
-              marginTop: "2rem",
-              fontSize: "0.9rem",
+              marginTop: "2.2rem",
+              fontSize: "0.85rem",
               opacity: 0.6,
             }}
           >
