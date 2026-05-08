@@ -84,7 +84,7 @@ export default function Navbar() {
             <AnimatePresence>
                 {open && (
                     <>
-                        {/* BACKDROP */}
+                        {/* BACKDROP (glass dark fade) */}
                         <motion.div
                             onClick={() => setOpen(false)}
                             initial={{ opacity: 0 }}
@@ -93,36 +93,43 @@ export default function Navbar() {
                             style={{
                                 position: "fixed",
                                 inset: 0,
-                                background: "rgba(0,0,0,0.45)",
+                                background: "rgba(0,0,0,0.35)",
+                                backdropFilter: "blur(6px)",
                                 zIndex: 999,
                             }}
                         />
 
-                        {/* SIDE DRAWER */}
+                        {/* GLASS MENU */}
                         <motion.div
-                            initial={{ x: "100%" }}
-                            animate={{ x: 0 }}
-                            exit={{ x: "100%" }}
-                            transition={{ type: "spring", stiffness: 120, damping: 18 }}
+                            initial={{ x: "100%", opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            exit={{ x: "100%", opacity: 0 }}
+                            transition={{ type: "spring", stiffness: 110, damping: 18 }}
                             style={{
                                 position: "fixed",
                                 top: 0,
                                 right: 0,
                                 width: "300px",
                                 height: "100vh",
-                                background: "#fff",
+                                background: "rgba(255,255,255,0.75)",
+                                backdropFilter: "blur(20px)",
+                                WebkitBackdropFilter: "blur(20px)",
                                 zIndex: 1000,
-                                padding: "2rem",
+                                padding: "2.5rem 2rem",
                                 display: "flex",
                                 flexDirection: "column",
-                                gap: "1.5rem",
+                                justifyContent: "center",
+                                gap: "2rem",
+                                boxShadow: "-10px 0 40px rgba(0,0,0,0.1)",
                             }}
                         >
-                            {/* CLOSE BUTTON (ONLY ONE CONTROL NOW) */}
+                            {/* CLOSE BUTTON */}
                             <button
                                 onClick={() => setOpen(false)}
                                 style={{
-                                    alignSelf: "flex-end",
+                                    position: "absolute",
+                                    top: "1.5rem",
+                                    right: "1.5rem",
                                     fontSize: "1.8rem",
                                     background: "none",
                                     border: "none",
@@ -133,21 +140,28 @@ export default function Navbar() {
                                 ✕
                             </button>
 
-                            {/* LINKS */}
-                            {navLinks.map((link) => (
-                                <Link
+                            {/* NAV LINKS (STAGGER ANIMATION) */}
+                            {navLinks.map((link, i) => (
+                                <motion.div
                                     key={link.href}
-                                    href={link.href}
-                                    onClick={() => setOpen(false)}
-                                    style={{
-                                        textDecoration: "none",
-                                        fontSize: "1.2rem",
-                                        color: "#111",
-                                        fontWeight: "500",
-                                    }}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: i * 0.08 }}
                                 >
-                                    {link.name}
-                                </Link>
+                                    <Link
+                                        href={link.href}
+                                        onClick={() => setOpen(false)}
+                                        style={{
+                                            textDecoration: "none",
+                                            fontSize: "1.4rem",
+                                            fontWeight: "500",
+                                            color: "#111",
+                                            letterSpacing: "0.5px",
+                                        }}
+                                    >
+                                        {link.name}
+                                    </Link>
+                                </motion.div>
                             ))}
                         </motion.div>
                     </>
