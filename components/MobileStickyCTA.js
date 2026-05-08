@@ -23,7 +23,7 @@ export default function MobileStickyCTA() {
                     height: "58px",
                     borderRadius: "50%",
                     border: "none",
-                    background: "#1C1A18",
+                    background: "#B08D7A",
                     color: "#fff",
                     display: "flex",
                     alignItems: "center",
