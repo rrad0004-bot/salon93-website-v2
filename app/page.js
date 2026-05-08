@@ -41,7 +41,7 @@ export default function Home() {
             position: "absolute",
             inset: 0,
             background:
-              "linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.75))",
+              "linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.65))",
           }}
         />
 
@@ -63,7 +63,8 @@ export default function Home() {
             style={{
               letterSpacing: "3px",
               fontSize: "0.75rem",
-              opacity: 0.7,
+              opacity: 0.8,
+              color: "#e6d3d3", // soft rose tint
               textTransform: "uppercase",
             }}
           >
@@ -77,6 +78,7 @@ export default function Home() {
               fontWeight: "700",
               marginTop: "1.6rem",
               letterSpacing: "-1px",
+              color: "#fff",
             }}
           >
             Salon 93
@@ -111,7 +113,7 @@ export default function Home() {
             </Link>
 
             <a href="tel:+61383582538">
-              <OutlineButton>Call Now</OutlineButton>
+              <OutlineButton variant="dark">Call Now</OutlineButton>
             </a>
           </div>
 
@@ -137,13 +139,14 @@ export default function Home() {
         style={{
           padding: "6rem 2rem",
           textAlign: "center",
+          background: "#F6F3EF", // from theme
         }}
       >
         <h2 style={{ fontSize: "2.5rem", fontWeight: "700" }}>
           Our Services
         </h2>
 
-        <p style={{ color: "#666", marginTop: "1rem" }}>
+        <p style={{ color: "#6B6B6B", marginTop: "1rem" }}>
           Tailored hair care designed for confidence and beauty
         </p>
 
@@ -189,7 +192,7 @@ export default function Home() {
         viewport={{ once: true, amount: 0.3 }}
         style={{
           padding: "5rem 2rem",
-          background: "#f9f9f9",
+          background: "#fff",
           textAlign: "center",
         }}
       >
@@ -197,7 +200,7 @@ export default function Home() {
           Why Choose Salon 93
         </h2>
 
-        <p style={{ color: "#666", marginTop: "1rem" }}>
+        <p style={{ color: "#6B6B6B", marginTop: "1rem", maxWidth: "600px", marginLeft: "auto", marginRight: "auto" }}>
           Precision, care, and personalised styling for every client.
         </p>
 
@@ -242,7 +245,7 @@ export default function Home() {
         viewport={{ once: true }}
         style={{
           padding: "5rem 2rem",
-          background: "#000",
+          background: "#1A1A1A",
           color: "#fff",
           textAlign: "center",
         }}
@@ -269,7 +272,7 @@ export default function Home() {
           </Link>
 
           <a href="tel:+61383582538">
-            <OutlineButton>Call Now</OutlineButton>
+            <OutlineButton variant="dark">Call Now</OutlineButton>
           </a>
         </div>
       </motion.section>
@@ -278,9 +281,9 @@ export default function Home() {
       <section
         style={{
           padding: "4rem 2rem",
-          background: "#fff",
+          background: "#F6F3EF",
+          borderTop: "1px solid rgba(0,0,0,0.06)",
           textAlign: "center",
-          borderTop: "1px solid #eee",
         }}
       >
         <h2 style={{ fontSize: "2rem", fontWeight: "700" }}>
@@ -291,7 +294,7 @@ export default function Home() {
           style={{
             marginTop: "1rem",
             color: "#666",
-            maxWidth: "600px",
+            maxWidth: "520px",
             marginLeft: "auto",
             marginRight: "auto",
             lineHeight: "1.6",

@@ -33,7 +33,7 @@ const services = [
 
 export default function Services() {
     return (
-        <main style={{ padding: "6rem 2rem", background: "#fff" }}>
+        <main style={{ padding: "6rem 2rem", background: "#F6F3EF" }}>
 
             {/* HEADER */}
             <motion.div
@@ -46,7 +46,7 @@ export default function Services() {
                     Our Services
                 </h1>
 
-                <p style={{ marginTop: "1rem", color: "#666" }}>
+                <p style={{ marginTop: "1rem", color: "#6B6B6B" }}>
                     Premium hair care tailored for women
                 </p>
             </motion.div>
@@ -84,19 +84,24 @@ export default function Services() {
                                         width: "100%",
                                         height: "100%",
                                         objectFit: "cover",
-                                        objectPosition: "center",
-                                        transition: "transform 0.3s ease",
+                                        transition: "transform 0.4s ease",
+                                    }}
+                                    onMouseOver={(e) => {
+                                        e.currentTarget.style.transform = "scale(1.05)";
+                                    }}
+                                    onMouseOut={(e) => {
+                                        e.currentTarget.style.transform = "scale(1)";
                                     }}
                                 />
                             </div>
 
                             {/* CONTENT */}
-                            <div style={{ padding: "1.5rem" }}>
+                            <div style={{ padding: "1.6rem" }}>
                                 <h3 style={{ fontSize: "1.3rem", fontWeight: "600" }}>
                                     {item.title}
                                 </h3>
 
-                                <p style={{ marginTop: "0.5rem", color: "#666", lineHeight: "1.6" }}>
+                                <p style={{ marginTop: "0.5rem", color: "#666" }}>
                                     {item.desc}
                                 </p>
                             </div>

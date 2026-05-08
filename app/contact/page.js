@@ -11,7 +11,7 @@ const fadeUp = {
 
 export default function Contact() {
     return (
-        <main style={{ padding: "6rem 2rem", background: "#fff" }}>
+        <main style={{ padding: "6rem 2rem", background: "#F6F3EF" }}>
 
             {/* HEADER */}
             <motion.div
@@ -47,7 +47,6 @@ export default function Contact() {
                     variants={fadeUp}
                     initial="hidden"
                     animate="show"
-                    transition={{ duration: 0.5 }}
                 >
                     <Card>
                         <h2 style={{ fontSize: "1.6rem", fontWeight: "600" }}>
@@ -56,7 +55,6 @@ export default function Contact() {
 
                         <p style={{ marginTop: "1rem", color: "#666", lineHeight: "1.6" }}>
                             Premium women’s hair salon located in Taylors Hill.
-                            Specialising in colour, cuts, styling and treatments.
                         </p>
 
                         <div style={{ marginTop: "2rem", color: "#444", lineHeight: "1.8" }}>
@@ -68,44 +66,39 @@ export default function Contact() {
                 </motion.div>
 
                 {/* FORM */}
-                <motion.form
+                <motion.div
                     variants={fadeUp}
                     initial="hidden"
                     animate="show"
-                    transition={{ duration: 0.6 }}
-                    style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        gap: "1rem",
-                    }}
                 >
+                    <Card>
+                        <form style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+                            <input placeholder="Full Name" style={inputStyle} />
+                            <input placeholder="Phone Number" style={inputStyle} />
+                            <input placeholder="Email" style={inputStyle} />
+                            <textarea
+                                placeholder="What would you like done?"
+                                rows="5"
+                                style={{ ...inputStyle, resize: "none" }}
+                            />
 
-                    <input placeholder="Full Name" style={inputStyle} />
-                    <input placeholder="Phone Number" style={inputStyle} />
-                    <input placeholder="Email" style={inputStyle} />
-                    <textarea
-                        placeholder="What would you like done?"
-                        rows="5"
-                        style={{ ...inputStyle, resize: "none" }}
-                    />
-
-                    <PrimaryButton>
-                        Send Request
-                    </PrimaryButton>
-
-                </motion.form>
+                            <PrimaryButton>
+                                Send Request
+                            </PrimaryButton>
+                        </form>
+                    </Card>
+                </motion.div>
 
             </div>
         </main>
     );
 }
 
-/* INPUT STYLE */
 const inputStyle = {
     padding: "1rem",
     borderRadius: "12px",
-    border: "1px solid #e5e5e5",
+    border: "1px solid rgba(0,0,0,0.08)",
     outline: "none",
     fontSize: "1rem",
-    transition: "all 0.2s ease",
+    background: "#fff",
 };

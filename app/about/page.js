@@ -10,20 +10,24 @@ const fadeUp = {
 
 export default function About() {
     return (
-        <main style={{ padding: "6rem 2rem", background: "#fff" }}>
+        <main style={{ padding: "6rem 2rem", background: "#F6F3EF" }}>
 
             {/* HERO */}
             <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                style={{ textAlign: "center", maxWidth: "750px", margin: "0 auto" }}
+                style={{
+                    textAlign: "center",
+                    maxWidth: "750px",
+                    margin: "0 auto"
+                }}
             >
                 <h1 style={{ fontSize: "3rem", fontWeight: "700" }}>
                     About Salon 93
                 </h1>
 
-                <p style={{ marginTop: "1rem", color: "#666", lineHeight: "1.6" }}>
+                <p style={{ marginTop: "1rem", color: "#6B6B6B", lineHeight: "1.6" }}>
                     A modern luxury hair salon dedicated to enhancing confidence through
                     personalised styling, precision cuts, and premium care.
                 </p>
@@ -55,7 +59,7 @@ export default function About() {
                             alt="Salon interior"
                             style={{
                                 width: "100%",
-                                height: "420px",
+                                height: "clamp(260px, 40vw, 420px)",
                                 objectFit: "cover",
                                 objectPosition: "center",
                             }}
@@ -77,7 +81,6 @@ export default function About() {
                     <p style={{ marginTop: "1rem", color: "#666", lineHeight: "1.7" }}>
                         Salon 93 was created with a simple goal — to provide high-quality,
                         personalised hair care in a calm and welcoming environment.
-                        Every client is treated with care, attention, and professionalism.
                     </p>
 
                     <p style={{ marginTop: "1rem", color: "#666", lineHeight: "1.7" }}>
@@ -110,7 +113,6 @@ export default function About() {
                         marginRight: "auto",
                     }}
                 >
-
                     {[
                         ["✨ Precision", "Every cut and colour is carefully crafted."],
                         ["💎 Quality", "We use only premium salon-grade products."],
@@ -134,7 +136,6 @@ export default function About() {
                             </Card>
                         </motion.div>
                     ))}
-
                 </div>
             </motion.div>
 

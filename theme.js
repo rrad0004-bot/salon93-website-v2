@@ -1,12 +1,18 @@
 export const colors = {
-    text: "#111",
-    muted: "#666",
-    soft: "#888",
-    border: "rgba(0,0,0,0.08)",
-    bg: "#ffffff",
-    lightBg: "#f9f9f9",
-    black: "#000",
-    white: "#fff",
+    text: "#1A1A1A",
+    muted: "#6B6B6B",
+    soft: "#8A8A8A",
+
+    bg: "#FFFFFF",
+    lightBg: "#F6F3EF",
+
+    border: "rgba(0,0,0,0.06)",
+
+    primary: "#D6AFAF",        // ⭐ dusty rose (main brand)
+    primaryHover: "#c59b9b",
+
+    black: "#1A1A1A",
+    white: "#FFFFFF",
 };
 
 export const spacing = {

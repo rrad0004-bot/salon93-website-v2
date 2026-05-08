@@ -5,23 +5,27 @@ export function PrimaryButton({ children }) {
         <button
             style={{
                 padding: "1rem 1.7rem",
-                background: "linear-gradient(135deg, #2b2b2b, #111)",
+                background: colors.primary,
                 color: "#fff",
-                borderRadius: "999px",
-                border: "1px solid rgba(255,255,255,0.08)",
+                borderRadius: radius.pill,
+                border: "none",
                 cursor: "pointer",
                 fontWeight: "600",
                 letterSpacing: "0.3px",
-                boxShadow: "0 12px 30px rgba(0,0,0,0.25)",
+                boxShadow: "0 8px 20px rgba(214,175,175,0.35)",
                 transition: "all 0.25s ease",
             }}
             onMouseOver={(e) => {
+                e.currentTarget.style.background = colors.primaryHover;
                 e.currentTarget.style.transform = "translateY(-2px)";
-                e.currentTarget.style.boxShadow = "0 18px 40px rgba(0,0,0,0.35)";
+                e.currentTarget.style.boxShadow =
+                    "0 12px 28px rgba(214,175,175,0.45)";
             }}
             onMouseOut={(e) => {
+                e.currentTarget.style.background = colors.primary;
                 e.currentTarget.style.transform = "translateY(0px)";
-                e.currentTarget.style.boxShadow = "0 12px 30px rgba(0,0,0,0.25)";
+                e.currentTarget.style.boxShadow =
+                    "0 8px 20px rgba(214,175,175,0.35)";
             }}
         >
             {children}
@@ -29,25 +33,37 @@ export function PrimaryButton({ children }) {
     );
 }
 
-export function OutlineButton({ children }) {
+export function OutlineButton({ children, variant = "light" }) {
+    const isDark = variant === "dark";
+
     return (
         <button
             style={{
                 padding: "1rem 1.7rem",
-                background: "rgba(255,255,255,0.08)",
-                color: "#fff",
-                borderRadius: "999px",
-                border: "1px solid rgba(255,255,255,0.35)",
+                background: isDark ? "transparent" : "rgba(0,0,0,0.03)",
+                color: isDark ? "#fff" : colors.text,
+                borderRadius: radius.pill,
+                border: isDark
+                    ? "1px solid rgba(255,255,255,0.5)"
+                    : `1px solid ${colors.border}`,
                 cursor: "pointer",
                 fontWeight: "500",
-                backdropFilter: "blur(8px)",
+                backdropFilter: isDark ? "blur(6px)" : "none",
                 transition: "all 0.25s ease",
             }}
             onMouseOver={(e) => {
-                e.currentTarget.style.background = "rgba(255,255,255,0.15)";
+                if (isDark) {
+                    e.currentTarget.style.background = "rgba(255,255,255,0.12)";
+                } else {
+                    e.currentTarget.style.background = "rgba(0,0,0,0.06)";
+                }
             }}
             onMouseOut={(e) => {
-                e.currentTarget.style.background = "rgba(255,255,255,0.08)";
+                if (isDark) {
+                    e.currentTarget.style.background = "transparent";
+                } else {
+                    e.currentTarget.style.background = "rgba(0,0,0,0.03)";
+                }
             }}
         >
             {children}
