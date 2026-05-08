@@ -47,3 +47,25 @@ a {
     color-scheme: dark;
   }
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #F6F3EF;
+  color: #111;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* optional subtle grain overlay (premium feel) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("../../public/images/noise.png");
+  z-index: 9999;
+}

@@ -4,8 +4,16 @@ import { motion } from "framer-motion";
 import { Card } from "components/ui/card";
 
 const fadeUp = {
-    hidden: { opacity: 0, y: 40 },
-    show: { opacity: 1, y: 0 }
+    hidden: { opacity: 0, y: 25, filter: "blur(6px)" },
+    show: {
+        opacity: 1,
+        y: 0,
+        filter: "blur(0px)",
+        transition: {
+            duration: 0.7,
+            ease: [0.25, 0.1, 0.25, 1]
+        }
+    }
 };
 
 const services = [
@@ -33,7 +41,7 @@ const services = [
 
 export default function Services() {
     return (
-        <main style={{ padding: "6rem 2rem", background: "#F6F3EF" }}>
+        <main style={{ padding: "7rem 1.5rem", background: "#F6F3EF" }}>
 
             {/* HEADER */}
             <motion.div

@@ -34,7 +34,7 @@ export default function Home() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          padding: "7rem 1.5rem 6rem",
+          padding: "8rem 1.5rem 6rem",
           textAlign: "center",
           backgroundImage: "url('/images/hero.jpg')",
           backgroundSize: "cover",
@@ -148,7 +148,7 @@ export default function Home() {
         whileInView="show"
         viewport={{ once: true, amount: 0.3 }}
         style={{
-          padding: "6rem 2rem",
+          padding: "7rem 1.5rem",
           textAlign: "center",
           background: "#F6F3EF", // from theme
         }}
