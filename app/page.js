@@ -20,14 +20,13 @@ export default function Home() {
   return (
     <>
       {/* HERO */}
-      {/* HERO */}
       <section
         style={{
           minHeight: "100vh",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          padding: "5rem 1.5rem",
+          padding: "7rem 1.5rem 6rem",
           textAlign: "center",
           backgroundImage: "url('/images/hero.jpg')",
           backgroundSize: "cover",
@@ -42,7 +41,7 @@ export default function Home() {
             position: "absolute",
             inset: 0,
             background:
-              "linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(0,0,0,0.75))",
+              "linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.75))",
           }}
         />
 
@@ -64,7 +63,7 @@ export default function Home() {
             style={{
               letterSpacing: "3px",
               fontSize: "0.75rem",
-              opacity: 0.75,
+              opacity: 0.7,
               textTransform: "uppercase",
             }}
           >
@@ -74,9 +73,9 @@ export default function Home() {
           {/* TITLE */}
           <h1
             style={{
-              fontSize: "clamp(2.5rem, 6vw, 4rem)",
+              fontSize: "clamp(2.8rem, 6vw, 4.2rem)",
               fontWeight: "700",
-              marginTop: "1.2rem",
+              marginTop: "1.6rem",
               letterSpacing: "-1px",
             }}
           >
@@ -86,11 +85,11 @@ export default function Home() {
           {/* SUBTEXT */}
           <p
             style={{
-              marginTop: "1.3rem",
-              maxWidth: "520px",
-              fontSize: "1.05rem",
+              marginTop: "1.8rem",
+              maxWidth: "540px",
+              fontSize: "1.1rem",
               opacity: 0.85,
-              lineHeight: "1.7",
+              lineHeight: "1.75",
             }}
           >
             Premium women’s hair care specialising in colour, styling and treatments
@@ -100,7 +99,7 @@ export default function Home() {
           {/* BUTTONS */}
           <div
             style={{
-              marginTop: "2.5rem",
+              marginTop: "3.2rem",
               display: "flex",
               gap: "1rem",
               flexWrap: "wrap",
@@ -119,7 +118,7 @@ export default function Home() {
           {/* LOCATION */}
           <p
             style={{
-              marginTop: "2.2rem",
+              marginTop: "3rem",
               fontSize: "0.85rem",
               opacity: 0.6,
             }}
